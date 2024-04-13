@@ -31,6 +31,12 @@
         "projectId": "8e76267f-709e-4ee9-b63b-4586aebd70d1"
       }
     },
-    "owner": "sebastiencozedev"
+    "owner": "sebastiencozedev",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/8e76267f-709e-4ee9-b63b-4586aebd70d1"
+    }
   }
 }
