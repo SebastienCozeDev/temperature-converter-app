@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "temperature-converter-app",
-    "slug": "temperature-converter-app",
+    "slug": "temperature-converter",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8e76267f-709e-4ee9-b63b-4586aebd70d1"
+      }
+    },
+    "owner": "sebastiencozedev"
   }
 }
