@@ -12,7 +12,7 @@ export function InputTemperature(props) {
         defaultValue={props.defaultValue}
         onChangeText={props.onChangeText}
       />
-      <Text style={style.unit}>°C</Text>
+      <Text style={style.unit}>{props.unit}</Text>
     </View>
   );
 }
