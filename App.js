@@ -22,7 +22,7 @@ export default function App() {
       const isColdBackground = isIceTemperature(inputValue, currentUnit);
       setCurrentBackground(isColdBackground ? coldBackground : hotBackground);
     }
-  }, [inputValue]);
+  }, [inputValue, currentUnit]);
 
   function getConvertedTemperature(value, unit) {
     const valueAsFloat = Number.parseFloat(inputValue);

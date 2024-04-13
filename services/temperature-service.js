@@ -7,7 +7,7 @@ export function getOppositUnit(unit) {
 
 export function convertTemperatureTo(unit, value) {
   if (unit === UNITS.celcius) {
-    return (value - 32) * 1.8;
+    return (value - 32) / 1.8;
   } else {
     return value * 1.8 + 32;
   }
