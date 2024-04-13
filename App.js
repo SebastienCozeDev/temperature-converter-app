@@ -10,6 +10,13 @@ import {convertTemperatureTo, getOppositUnit, isIceTemperature} from "./services
 import {ButtonConvert} from "./components/ButtonConvert/ButtonConvert";
 
 
+/**
+ * App component.
+ *
+ * @return {JSX.Element} - Rendered component.
+ *
+ * @constructor
+ */
 export default function App() {
   const [inputValue, setInputValue] = useState(DEFAULT_TEMPERATURE);
   const [currentUnit, setCurrentUnit] = useState(DEFAULT_UNIT);
@@ -24,6 +31,14 @@ export default function App() {
     }
   }, [inputValue, currentUnit]);
 
+  /**
+   * Get the converted temperature.
+   *
+   * @param value {string} - The temperature value.
+   * @param unit {string} - The unit of the temperature.
+   *
+   * @return {string} - The converted temperature.
+   */
   function getConvertedTemperature(value, unit) {
     const valueAsFloat = Number.parseFloat(inputValue);
     return isNaN(valueAsFloat) ? "" : convertTemperatureTo(oppositeUnit, valueAsFloat).toFixed(1);

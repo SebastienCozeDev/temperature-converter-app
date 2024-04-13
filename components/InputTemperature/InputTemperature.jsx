@@ -1,6 +1,15 @@
 import { style } from "./InputTemperature.style";
 import {Text, TextInput, View} from "react-native";
 
+/**
+ * InputTemperature component.
+ *
+ * @param props {object} - Component props.
+ *
+ * @return {JSX.Element} - Rendered component.
+ *
+ * @constructor
+ */
 export function InputTemperature(props) {
   return (
     <View style={style.container}>
