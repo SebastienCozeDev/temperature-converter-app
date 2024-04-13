@@ -10,6 +10,7 @@ export function InputTemperature(props) {
         keyboardType="numeric"
         maxLength={4}
         defaultValue={props.defaultValue}
+        onChangeText={props.onChangeText}
       />
       <Text style={style.unit}>°C</Text>
     </View>
