@@ -1,18 +1,28 @@
 import {ImageBackground, Text, View} from 'react-native';
 import { style } from './App.style';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import hotBackground from "./assets/hot.png";
+import coldBackground from "./assets/cold.png";
 import {InputTemperature} from "./components/InputTemperature/InputTemperature";
 import {TemperatureDisplay} from "./components/TemperatureDisplay/TemperatureDisplay";
 import {DEFAULT_TEMPERATURE, DEFAULT_UNIT} from "./constant";
-import {convertTemperatureTo, getOppositUnit} from "./services/temperature-service";
+import {convertTemperatureTo, getOppositUnit, isIceTemperature} from "./services/temperature-service";
 import {ButtonConvert} from "./components/ButtonConvert/ButtonConvert";
 
 
 export default function App() {
   const [inputValue, setInputValue] = useState(DEFAULT_TEMPERATURE);
   const [currentUnit, setCurrentUnit] = useState(DEFAULT_UNIT);
+  const [currentBackground, setCurrentBackground] = useState();
   const oppositeUnit = getOppositUnit(currentUnit);
+
+  useEffect(() => {
+    const temperatureAsFloat = Number.parseFloat(inputValue);
+    if (!isNaN(temperatureAsFloat)) {
+      const isColdBackground = isIceTemperature(inputValue, currentUnit);
+      setCurrentBackground(isColdBackground ? coldBackground : hotBackground);
+    }
+  }, [inputValue]);
 
   function getConvertedTemperature(value, unit) {
     const valueAsFloat = Number.parseFloat(inputValue);
@@ -20,7 +30,7 @@ export default function App() {
   }
 
   return (
-    <ImageBackground source={hotBackground} style={style.container}>
+    <ImageBackground source={currentBackground} style={style.container}>
       <View style={style.workspace}>
         <TemperatureDisplay
           value={getConvertedTemperature()}
